@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- <router-view/> -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <!-- 不可以被缓存的视图组件 -->
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 

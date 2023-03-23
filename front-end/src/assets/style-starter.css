@@ -1425,7 +1425,6 @@ progress {
   }
 
   .col-lg-5 {
-    flex: 0 0 auto;
     width: 41.6666666667%;
   }
 
@@ -7869,10 +7868,6 @@ fieldset:disabled .btn {
 
 .mt-4 {
   margin-top: 1.5rem !important;
-}
-
-.mt-5 {
-  margin-top: 3rem !important;
 }
 
 .mt-auto {
@@ -19788,14 +19783,7 @@ ul.rating-star li span.fa {
 /* //team section */
 
 /* content block1 */
-.w3l-content-block1 {
-  background: url(../assets/images/bg3.jpg) no-repeat center;
-  background-size: cover;
-  position: relative;
-  z-index: 1;
-  display: grid;
-  align-items: center;
-}
+
 
 .w3l-content-block1:before {
   content: "";
@@ -20169,16 +20157,7 @@ ul.admin-post li a:hover {
 /* //footer */
 
 /* inner banner */
-.inner-banner {
-  background: url(../assets/images/bg2.jpg) no-repeat center;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -ms-background-size: cover;
-  position: relative;
-  z-index: 1;
-}
+
 
 .inner-banner::before {
   content: "";
@@ -20639,17 +20618,6 @@ button.owl-next {
 }
 
 /*--//owl-slider--*/
-.w3l-testimonials .cusrtomer-layout {
-  background: url(../assets/images/bg5.jpg) no-repeat center;
-  -ms-background-size: cover;
-  background-size: cover;
-  z-index: 0;
-  position: relative;
-  align-items: center;
-  background-size: cover;
-  z-index: 0;
-  position: relative;
-}
 
 .w3l-testimonials .cusrtomer-layout::before {
   content: "";

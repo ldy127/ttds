@@ -19,7 +19,7 @@
                         <el-col :span=12>
                             <h4 class="title-style mb-4" style="float:center;font-weight:bold;color:darkred">No-Bake Nut Cookies</h4>
                             
-                            <img src="../assets/images/c1.jpg" style="max-width: 60%;height: auto;"></el-col>
+                            <img src="../assets/images/ab.jpg" style="max-width: 60%;height: auto;"></el-col>
                         <el-col :span=12>
                             <h5 style="color:crimson; font-weight: bold;">Ingredients: </h5> <br/>
                             <li style="text-align: left;"> <i class="el-icon-star-off"></i>  1 c. firmly packed brown sugar</li>

@@ -17,17 +17,26 @@ export default new Router({
     {
       path: '/',
       name: 'Homepage',
-      component: Homepage
+      component: Homepage,
+      meta: {
+        keepAlive: false //此页面需要缓存
+      }
     },
     {
       path: '/result',
       name: 'SearchResult',
-      component: SearchResult
+      component: SearchResult,
+      meta: {
+        keepAlive: true //此页面需要缓存
+      }
     },
     {
       path: '/detail',
       name: 'Detail',
-      component: Detail
+      component: Detail,
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/test',
