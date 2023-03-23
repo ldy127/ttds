@@ -36,8 +36,6 @@ MAX_QUERY_TIME = 10  # max seconds to allow the query to run for
 MAX_TERM_TIME = 4000000
 batch_size = 20
 db = get_db_instance()
-TEMP_WHOLE_DATA = 50000
-TEMP_DOC_NUM = 100
 DOCNUM_PER_LIMIT = 42
 
 def getMongo(dish):
@@ -118,79 +116,14 @@ def recipe_search(query="", include=[], exclude=[], searchType="directions"):
     return result
     
    
-    # if searchType == "dish":
-    #     if len(include) == 0 and len(exclude) == 0:
-    #         recipe_ids = None
-    #     else:
-    #         recipe_ids = BooleanIngredientSearch().search(include=include,
-    #                                                       exclude=exclude)
-
-    #     if len(query) == 0:
-    #         random.seed(10)
-    #         res = list(recipe_ids) if recipe_ids is not None else []
-    #         random.shuffle(res)
-    #     else:
-
-
-    #     if recipe_ids is not None:
-
-    #         res = [recipe_id for recipe_id in res if recipe_id in recipe_ids]
-
-    #     return res[:count]
-
-
-
-
-
-class BooleanIngredientSearch:
-    def _get_recipes_with_ingr(self, ingr):
-        """
-        Finds all recipes with an ingredient which has the given ingredient as substring
-        """
-        result = []
-        my_ingredients = re.compile(f"[a-z,A-Z,']*{ingr}[a-z,A-Z,']*")
-        Recipe_Ingredient = db_mongodb.find({'ingredients':{"$regex":my_ingredients}})
-        for x in Recipe_Ingredient:
-            result.append(x)
-
-        return result
-
-    def search(self, include=[], exclude=[]):
-        res, re_include, re_exclude= [],[],[]
-        final_include, final_exclude = set(), set()
-
-        if len(include) == 0:
-            res = list(db_mongodb.find().pretty())
-
-
-        for i ,ingredient in enumerate(include):
-            re_include.append(self._get_recipes_with_ingr(ingredient.lower()))
-            if i == 0: final_include = set(re_include[i])
-            else: final_include |= set(re_include[i])
-    
-        for j, ingredient in enumerate(exclude):
-            re_exclude.append(self._get_recipes_with_ingr(ingredient.lower()))
-            if j == 0: final_include = set(re_exclude[j])
-            else: final_exclude |= set(re_exclude[j])
-            #res -= recipes_with_ingr
-        
-        if len(final_include)==0:
-            cursor = db_mongodb.find().limit(TEMP_WHOLE_DATA)
-            for i in cursor:
-                final_include.add(i)
-        if len(final_exclude)!=0:
-            final_include = final_include - final_exclude
-
-        return final_include
-
 
 class RankedSearch:
     
     def __init__(self):
         #self.indexer = Indexer()
         # self.spell_checker = SpellChecker()
-        self.AVG_LENGTH = 50
-        self.DOC_COUNT = 7000000
+        self.AVG_LENGTH = 87.4
+        self.DOC_COUNT = 2464613
 
     def search(self, query):
         def bm25_weights_vector(tfs, df, lengths, k=1.5):
